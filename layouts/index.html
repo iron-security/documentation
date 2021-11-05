@@ -1,0 +1,83 @@
+{{ define "main" }}
+<br/>
+<br/>
+<section class="section container-fluid mt-n5 pb-3">
+  <div class="row justify-content-center">
+    <div class="col-lg-12 text-center">
+      <img src="{{ "/img/favicon.png" | absURL }}" class="img-responsive" alt="logo"/>
+      
+      <h1 class="pt-20">{{ .Title }}</h1>
+    </div>
+    <div class="col-lg-9 col-xl-8 text-center">
+      <p class="lead">
+        {{ .Params.lead | safeHTML }}
+      </p>
+      <p>
+        For convenience, the documentation is divided into several categories:
+      </p>
+    </div>
+  </div>
+</section>
+<br/>
+<br/>
+<br/>
+{{ end }}
+
+{{ define "sidebar-prefooter" }}
+  {{ if eq $.Site.Language.LanguageName "English" }}
+  <section class="section section-sm">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-5">
+          <h2 class="h4">
+            <svg viewBox="0 0 24 24" class="pb-1" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+            &nbsp;
+            Product
+          </h2>
+          <p>
+            Anything related to using our platform such as user guides, sensor installation and explainers.
+          </p>
+        </div>
+
+        <div class="col-lg-5">
+          <h2 class="h4">
+            <svg viewBox="0 0 24 24" class="pb-1" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            &nbsp;
+            Company
+          </h2>
+          <p>
+            Company information such as policies, whitepapers or other documents.
+          </p>
+        </div>
+
+        <div class="col-lg-5">
+          <h2 class="h4">
+            <svg viewBox="0 0 24 24" class="pb-1" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            &nbsp;
+            Security
+          </h2>
+          <p>
+            Specific information around how we secure your information.
+          </p>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  {{ end }}
+{{ end }}
+
+{{ define "sidebar-footer" }}
+<section class="section section-sm container-fluid">
+  <div class="row justify-content-center text-center">
+    <div class="col-lg-9">
+      {{- .Content -}}
+    </div>
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,36 @@
+name = "ironsecurity-docs"
+type = "webpack"
+
+workers_dev = false
+usage_model = 'bundled'
+compatibility_flags = []
+compatibility_date  = "2021-09-20"
+
+[vars]
+CSP_POLICY  = "default-src 'none'; script-src 'self'; style-src 'self' fonts.googleapis.com; img-src 'self' data:; font-src 'self' data: fonts.gstatic.com; media-src 'self'; prefetch-src 'self';"
+ENVIRONMENT = 'dev'
+
+[env.dev.vars]
+ENVIRONMENT = "dev" 
+CSP_POLICY          = "default-src 'none'; script-src 'self'; style-src 'self' fonts.googleapis.com; img-src 'self' data:; font-src 'self' data: fonts.gstatic.com; media-src 'self'; prefetch-src 'self';"
+[env.dev]
+webpack_config = "workers/webpack.config.dev.js"
+
+[env.prd.vars]
+ENVIRONMENT = "dev" 
+CSP_POLICY          = "default-src 'none'; script-src 'self'; style-src 'self' fonts.googleapis.com; img-src 'self' data:; font-src 'self' data: fonts.gstatic.com; media-src 'self'; prefetch-src 'self';"
+[env.prd]
+routes      = ['docs.iron.security/*', 'www.docs.iron.security/*']
+zone_id     = '7e568a94bf4fe58607aec4b1677f80b1'
+account_id  = 'cc3c0a0320f6300a87a710edf2731e79'
+
+[build]
+command     = "npm run build"
+watch_dir   = "workers/"
+
+[build.upload]
+format      = "service-worker"
+
+[site]
+bucket      = "./public/"
+entry-point = "./workers/"

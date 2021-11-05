@@ -1,0 +1,66 @@
+name: release
+
+on:
+  push:
+    branches:
+    - master
+    - main
+
+env:
+  WEBSITE_URL: https://docs.iron.security/
+  CF_ZONE_ID: 7e568a94bf4fe58607aec4b1677f80b1
+
+jobs:
+
+  release:
+    runs-on: ubuntu-latest
+    steps:
+    -
+      uses: actions/checkout@v2
+    -
+      uses: go-semantic-release/action@v1
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+    -
+      name: create deployment
+      uses: niklasmerz/github-deployment-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        args: -o ${{ github.repository_owner }} -r ${{ github.event.repository.name }} -c main -e production
+    -
+      name: Setup npm
+      run: npm install
+    -
+      name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+    -
+      name: hugo build
+      run: npm run build
+    -
+      name: publish
+      uses: cloudflare/wrangler-action@1.3.0
+      with:
+        apiToken: ${{ secrets.CF_API_TOKEN }}
+        environment: prd
+    -
+      name: Purge cache
+      uses: jakejarvis/cloudflare-purge-action@master
+      env:
+        CLOUDFLARE_ZONE: ${{ env.CF_ZONE_ID }}
+        CLOUDFLARE_TOKEN: ${{ secrets.CF_API_TOKEN }}
+    -
+      name: set deployment status
+      uses: niklasmerz/github-deployment-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        args: -o ${{ github.repository_owner }} -r ${{ github.event.repository.name }} -s success -u ${{ env.WEBSITE_URL }} -f
+    -
+      name: set failed deployment
+      uses: niklasmerz/github-deployment-action@master
+      if: ${{ failure() }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        args: -o ${{ github.repository_owner }} -r ${{ github.event.repository.name }} -s failed -u ${{ env.WEBSITE_URL }} -f

@@ -1,0 +1,31 @@
+{{ define "main" }}
+<div class="row justify-content-center">
+  <div class="col-md-12 col-lg-10 col-xl-8">
+    <article>
+      <h1 class="text-center">
+		<svg viewBox="0 0 24 24" class="pb-2" width="40" height="40" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        {{ .Title }}
+	  </h1>
+
+	  <p class="lead text-center">
+		{{ .Description }}
+	  </p>
+
+      <div class="text-center">{{ .Content }}</div>
+		<div class="card-list">
+			{{ $currentSection := .CurrentSection }}
+			{{ range where .Site.RegularPages.ByTitle "Section" .Section }}
+				{{ if in (.RelPermalink | string) $currentSection.RelPermalink }}
+					<div class="card my-3">
+						<div class="card-body">
+							<a class="stretched-link" href="{{ .RelPermalink }}">{{ .Params.title | title }} &rarr;</a>
+						</div>
+					</div>
+				{{ end }}
+			{{ end }}
+		</div>
+		
+    </article>
+  </div>
+</div>
+{{ end }}

@@ -1,0 +1,4 @@
+{{ if .Site.Params.options.darkMode -}}
+  {{ $darkModeInit := resources.Get "js/darkmode-init.js" | minify | fingerprint -}}
+  <script src="{{ $darkModeInit.RelPermalink }}" integrity="{{ $darkModeInit.Data.Integrity }}" crossorigin="anonymous"></script>
+{{ end -}}

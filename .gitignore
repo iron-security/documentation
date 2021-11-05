@@ -1,0 +1,11 @@
+node_modules/
+generated/
+public/
+resources/
+workers/worker/
+dist/
+data/
+dev.env
+.mf/
+.DS_Store
+.vscode/

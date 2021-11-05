@@ -1,0 +1,86 @@
+# Meta Data for SEO
+
+## Homepage
+title = "DOCS.IRON"
+titleSeparator = "-"
+titleAddition = "IRON Documentation"
+description = "The main documentation website where you can find everything informational related to IRON."
+
+## Documentation
+# docsVersion = "0.3"
+
+## Open Graph
+images = ["https://iron.security/img/favicon.png"]
+ogLocale = "en_US"
+domainTLD = "docs.iron.security"
+titleHome = "DOCS.IRON"
+
+## Twitter Cards
+twitterSite = ""
+twitterCreator = ""
+
+## JSON-LD
+# schemaType = "Person"
+schemaType = "Organization"
+schemaName = "iron.security"
+schemaAuthor = "IRON Security"
+schemaAuthorTwitter = ""
+schemaAuthorLinkedIn = ""
+schemaAuthorGitHub = "https://github.com/iron-security"
+schemaLocale = "en-US"
+schemaLogo = "/img/favicon.png"
+schemaLogoWidth = 512
+schemaLogoHeight = 512
+schemaImage = "/img/favicon.png"
+schemaImageWidth = 1280
+schemaImageHeight = 640
+schemaTwitter = "https://twitter.com/irondotsecurity"
+schemaLinkedIn = ""
+schemaGitHub = "https://github.com/iron-security/documentation"
+schemaSection = "blog"
+
+## Sitelinks Search Box
+siteLinksSearchBox = true
+
+## Chrome Browser
+themeColor = "#fff"
+
+# Images
+quality = 85
+bgColor = "#fff"
+landscapePhotoWidths = [900, 800, 700, 600, 500]
+portraitPhotoWidths = [800, 700, 600, 500]
+lqipWidth = "20x"
+smallLimit = "300"
+
+# Footer
+footer = ""
+
+# Feed
+copyRight = ""
+
+# Alert
+alert = false
+alertDismissable = true
+
+# Edit Page
+# repoHost [Github | Gitea | GitLab] is used for building the edit link based on git hoster
+repoHost = "GitHub"
+#repoHost = "Gitea"
+docsRepo = "https://github.com/h-enk/doks"
+docsRepoBranch = "master"
+editPage = false
+
+[options]
+  lazySizes = true
+  clipBoard = true
+  instantPage = true
+  flexSearch = false
+  darkMode = true
+  bootStrapJs = true
+  breadCrumb = false
+  highLight = true
+  kaTex = false
+  collapsibleSidebar = true
+  multilingualMode = false
+  docsVersioning = false
