@@ -13,7 +13,7 @@ jobs:
       pull-requests: write
 
     steps:
-    - uses: 9sako6/imgcmp@1.0.0
+    - uses: 9sako6/imgcmp@v2.0.0
       env:
         GITHUB_USER: ${{ github.repository_owner }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
