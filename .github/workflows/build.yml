@@ -25,5 +25,4 @@ jobs:
       with:
         apiToken: ${{ secrets.CF_API_TOKEN }}
         environment: prd
-        publish: false
-        preCommands: wrangler build
+        command: build
