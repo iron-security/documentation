@@ -21,7 +21,6 @@ ENVIRONMENT = "dev"
 CSP_POLICY          = "default-src 'none'; script-src 'self'; style-src 'self' fonts.googleapis.com; img-src 'self' data:; font-src 'self' data: fonts.gstatic.com; media-src 'self'; prefetch-src 'self';"
 [env.prd]
 routes      = ['docs.iron.security/*', 'www.docs.iron.security/*']
-zone_id     = '7e568a94bf4fe58607aec4b1677f80b1'
 account_id  = 'cc3c0a0320f6300a87a710edf2731e79'
 
 [build]
