@@ -1,5 +1,5 @@
 name = "ironsecurity-docs"
-main = "./workers/"
+main = "./workers/index.js"
 
 workers_dev = false
 usage_model = 'bundled'
