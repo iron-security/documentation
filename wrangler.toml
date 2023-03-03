@@ -1,5 +1,5 @@
 name = "ironsecurity-docs"
-type = "webpack"
+main = "./workers/"
 
 workers_dev = false
 usage_model = 'bundled'
@@ -27,9 +27,5 @@ account_id  = 'cc3c0a0320f6300a87a710edf2731e79'
 command     = "npm run build"
 watch_dir   = "workers/"
 
-[build.upload]
-format      = "service-worker"
-
 [site]
 bucket      = "./public/"
-entry-point = "./workers/"
